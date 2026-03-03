@@ -30,8 +30,14 @@ export function ProjectsContent() {
               </h1>
             </ScrollReveal>
 
+            <ScrollReveal>
+              <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-slate-900 dark:text-white">
+                My Projects
+              </h1>
+            </ScrollReveal>
+
             <ScrollReveal delay={100}>
-              <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+              <p className="text-slate-600 dark:text-slate-400 text-center max-w-2xl mx-auto mb-12">
                 Here are some of the projects I&apos;ve worked on, showcasing my expertise 
                 in Laravel, PHP, and modern web technologies.
               </p>
@@ -43,10 +49,10 @@ export function ProjectsContent() {
                   key={cat.value}
                   onClick={() => setActiveCategory(cat.value)}
                   className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                    "px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200",
                     activeCategory === cat.value
-                      ? "bg-primary text-white"
-                      : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                      ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/25"
+                      : "bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 hover:bg-blue-100 dark:hover:bg-slate-600 border-2 border-transparent hover:border-blue-300 dark:hover:border-slate-500"
                   )}
                 >
                   {cat.label}

@@ -42,10 +42,10 @@ export function ProjectsPreview() {
               key={cat.value}
               onClick={() => setActiveCategory(cat.value)}
               className={cn(
-                "px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
+                "px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200",
                 activeCategory === cat.value
-                  ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white"
-                  : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
+                  ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/25"
+                  : "bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 hover:bg-blue-100 dark:hover:bg-slate-600 border-2 border-transparent hover:border-blue-300 dark:hover:border-slate-500"
               )}
             >
               {cat.label}
