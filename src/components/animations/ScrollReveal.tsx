@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface ScrollRevealProps {
@@ -16,37 +16,37 @@ export function ScrollReveal({
   delay = 0,
   direction = "up",
 }: ScrollRevealProps) {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+          element.classList.add("scroll-revealed");
+          observer.unobserve(element);
         }
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(element);
 
     return () => observer.disconnect();
   }, []);
 
-  const getTransform = () => {
+  const getInitialTransform = () => {
     switch (direction) {
       case "up":
-        return "translateY(30px)";
+        return "translateY(40px)";
       case "down":
-        return "translateY(-30px)";
+        return "translateY(-40px)";
       case "left":
-        return "translateX(30px)";
+        return "translateX(40px)";
       case "right":
-        return "translateX(-30px)";
+        return "translateX(-40px)";
       case "fade":
         return "none";
     }
@@ -55,13 +55,10 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={cn(
-        "transition-all duration-700 ease-out",
-        isVisible ? "opacity-100 translate-none" : "opacity-0",
-        className
-      )}
+      className={cn("scroll-reveal-element", className)}
       style={{
-        transform: isVisible ? "none" : getTransform(),
+        transform: getInitialTransform(),
+        opacity: 0,
         transitionDelay: `${delay}ms`,
       }}
     >

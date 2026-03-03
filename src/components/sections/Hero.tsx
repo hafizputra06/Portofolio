@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
@@ -27,7 +27,6 @@ export function Hero() {
         setCurrentText(text.substring(0, currentText.length + 1));
         if (currentText === text) {
           setIsDeleting(true);
-          setTimeout(() => {}, 2000);
         }
       } else {
         setCurrentText(text.substring(0, currentText.length - 1));
@@ -43,23 +42,25 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900" />
       
-      <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 -right-20 w-80 h-80 bg-blue-400/10 dark:bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 -left-20 w-80 h-80 bg-cyan-400/10 dark:bg-cyan-500/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl">
           <ScrollReveal>
-            <p className="text-primary font-medium mb-4 tracking-wide uppercase text-sm">
-              Hello, I&apos;m a Developer
-            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              Available for freelance work
+              <Sparkles className="w-4 h-4" />
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-slate-900 dark:text-white">
               Building{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
                 Modern Web
               </span>
               <br />
@@ -69,15 +70,15 @@ export function Hero() {
 
           <ScrollReveal delay={200}>
             <div className="h-8 md:h-10 mb-6">
-              <span className="text-xl md:text-2xl text-muted-foreground">
+              <span className="text-xl md:text-2xl text-slate-600 dark:text-slate-300">
                 {currentText}
-                <span className="animate-pulse text-primary">|</span>
+                <span className="animate-pulse text-blue-600 dark:text-blue-400">|</span>
               </span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-8">
+            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mb-8">
               I transform ideas into elegant, scalable web applications using 
               modern technologies. Let&apos;s build something amazing together.
             </p>
@@ -100,19 +101,19 @@ export function Hero() {
 
           <ScrollReveal delay={500}>
             <div className="mt-12 flex items-center gap-8">
-              <div>
-                <p className="text-3xl font-bold text-primary">5+</p>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">5+</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">Years Experience</p>
               </div>
-              <div className="w-px h-12 bg-border" />
-              <div>
-                <p className="text-3xl font-bold text-primary">50+</p>
-                <p className="text-sm text-muted-foreground">Projects Completed</p>
+              <div className="w-px h-12 bg-slate-200 dark:bg-slate-700" />
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">50+</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">Projects</p>
               </div>
-              <div className="w-px h-12 bg-border" />
-              <div>
-                <p className="text-3xl font-bold text-primary">30+</p>
-                <p className="text-sm text-muted-foreground">Happy Clients</p>
+              <div className="w-px h-12 bg-slate-200 dark:bg-slate-700" />
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">30+</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">Clients</p>
               </div>
             </div>
           </ScrollReveal>

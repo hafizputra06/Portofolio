@@ -27,13 +27,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       setTheme(stored);
     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setTheme("dark");
+    } else {
+      setTheme("light");
     }
   }, []);
 
   useEffect(() => {
     if (mounted) {
-      document.documentElement.classList.remove("light", "dark");
-      document.documentElement.classList.add(theme);
+      const root = document.documentElement;
+      root.classList.remove("light", "dark");
+      root.classList.add(theme);
       localStorage.setItem("theme", theme);
     }
   }, [theme, mounted]);

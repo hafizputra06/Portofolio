@@ -1,70 +1,81 @@
 "use client";
 
-import { Mail, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, MessageCircle, Zap } from "lucide-react";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 export function ContactPreview() {
   return (
-    <section className="py-20 bg-secondary">
-      <div className="container mx-auto px-4">
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
+      
+      <div className="absolute top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 -left-20 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">
+              <MessageCircle className="w-4 h-4" />
+              Contact
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Get In Touch
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-blue-100 dark:text-blue-200 max-w-2xl mx-auto text-lg">
               Have a project in mind? Let&apos;s discuss how we can work together.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
           <ScrollReveal delay={100}>
             <a
               href="mailto:hello@example.com"
-              className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+              className="flex items-center gap-3 text-white hover:text-blue-100 transition-colors bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl hover:bg-white/20 transition-all"
             >
-              <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
                 <Mail className="w-5 h-5" />
               </div>
-              <span>hello@example.com</span>
+              <span className="font-medium">hello@example.com</span>
             </a>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <div className="flex items-center gap-3 text-muted-foreground">
-              <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+            <div className="flex items-center gap-3 text-white bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl">
+              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
                 <MapPin className="w-5 h-5" />
               </div>
-              <span>Jakarta, Indonesia</span>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={300}>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-white/10 transition-all"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-white/10 transition-all"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+              <span className="font-medium">Jakarta, Indonesia</span>
             </div>
           </ScrollReveal>
         </div>
 
-        <div className="text-center mt-12">
+        <ScrollReveal delay={300}>
+          <div className="flex justify-center gap-4 mb-12">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+          </div>
+        </ScrollReveal>
+
+        <div className="text-center">
           <a href="/contact">
-            <button className="px-8 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-colors">
+            <button className="px-10 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:shadow-white/20 hover:scale-105 flex items-center gap-2 mx-auto">
+              <Zap className="w-5 h-5" />
               Send a Message
             </button>
           </a>
