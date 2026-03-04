@@ -7,9 +7,8 @@ import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 const typingTexts = [
-  "Building Scalable Apps with Laravel",
+  "Building Scalable Apps with Laravel and PHP",
   "Creating Beautiful Web Experiences",
-  "Developing RESTful APIs",
   "Crafting Clean Code Solutions",
 ];
 
@@ -43,7 +42,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900" />
-      
+
       <div className="absolute top-20 -right-20 w-80 h-80 bg-blue-400/10 dark:bg-blue-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 -left-20 w-80 h-80 bg-cyan-400/10 dark:bg-cyan-500/10 rounded-full blur-3xl" />
 
@@ -79,7 +78,7 @@ export function Hero() {
 
           <ScrollReveal delay={300}>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mb-8">
-              I transform ideas into elegant, scalable web applications using 
+              I transform ideas into elegant, scalable web applications using
               modern technologies. Let&apos;s build something amazing together.
             </p>
           </ScrollReveal>
@@ -102,18 +101,13 @@ export function Hero() {
           <ScrollReveal delay={500}>
             <div className="mt-12 flex items-center gap-8">
               <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">5+</p>
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">1+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Years Experience</p>
               </div>
               <div className="w-px h-12 bg-slate-200 dark:bg-slate-700" />
               <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">50+</p>
+                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">4+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Projects</p>
-              </div>
-              <div className="w-px h-12 bg-slate-200 dark:bg-slate-700" />
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
-                <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">30+</p>
-                <p className="text-sm text-slate-600 dark:text-slate-400">Clients</p>
               </div>
             </div>
           </ScrollReveal>

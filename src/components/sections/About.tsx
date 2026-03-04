@@ -9,7 +9,7 @@ export function AboutPreview() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -41,11 +41,11 @@ export function AboutPreview() {
               I&apos;m a Laravel & PHP Developer
             </h3>
             <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-              With over 5 years of experience in web development, I specialize in 
-              building scalable applications using Laravel and modern frontend technologies. 
+              With over 1 years of experience in web development, I specialize in
+              building scalable applications using Laravel, PHP and modern frontend technologies.
               I love turning complex problems into simple, beautiful solutions.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700">
                 <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400 mb-2" />
@@ -60,7 +60,7 @@ export function AboutPreview() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {["Laravel", "PHP", "React", "MySQL", "Tailwind CSS"].map((skill) => (
+              {["Laravel", "PHP", "HTML", "MySQL", "Tailwind CSS"].map((skill) => (
                 <Badge key={skill} variant="default" className="px-4 py-1.5">
                   {skill}
                 </Badge>
@@ -77,7 +77,7 @@ export function SkillsSection() {
   return (
     <section className="py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent dark:via-slate-900/50" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">

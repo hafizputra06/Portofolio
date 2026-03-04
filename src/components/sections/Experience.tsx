@@ -8,7 +8,7 @@ export function ExperienceTimeline() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50/30 via-white to-cyan-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -17,7 +17,7 @@ export function ExperienceTimeline() {
               Experience
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-              Work History
+              Experience History
             </h2>
           </div>
         </ScrollReveal>

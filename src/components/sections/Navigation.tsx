@@ -45,7 +45,7 @@ export function Navigation() {
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl font-bold">
             <span className="text-blue-600 dark:text-blue-400">&lt;</span>
-            <span className="text-slate-800 dark:text-white">Mas DEV</span>
+            <span className="text-slate-800 dark:text-white">Hi, iam Hafiz</span>
             <span className="text-blue-600 dark:text-blue-400">/&gt;</span>
           </span>
         </Link>
