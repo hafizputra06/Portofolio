@@ -106,23 +106,24 @@ function CleanCodeAnimation() {
 function SecureAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shieldRef = useRef<HTMLDivElement>(null);
-  const lockRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
   const check1Ref = useRef<HTMLDivElement>(null);
   const check2Ref = useRef<HTMLDivElement>(null);
   const check3Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.to(shieldRef.current, {
-      scale: 1.05,
+      y: -4,
       duration: 1.5,
       ease: "power1.inOut",
       repeat: -1,
       yoyo: true,
     });
 
-    gsap.to(lockRef.current, {
-      y: -3,
-      duration: 1,
+    gsap.to(glowRef.current, {
+      opacity: 0.6,
+      scale: 1.1,
+      duration: 1.5,
       ease: "power1.inOut",
       repeat: -1,
       yoyo: true,
@@ -133,12 +134,12 @@ function SecureAnimation() {
       if (check) {
         gsap.fromTo(
           check,
-          { opacity: 0.3, scale: 0.8 },
+          { opacity: 0.4, scale: 0.9 },
           {
             opacity: 1,
             scale: 1,
-            duration: 0.8,
-            delay: i * 0.3,
+            duration: 0.6,
+            delay: i * 0.2,
             repeat: -1,
             yoyo: true,
             ease: "power1.inOut",
@@ -154,24 +155,21 @@ function SecureAnimation() {
       className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden flex flex-col h-full"
     >
       <div className="flex-grow flex flex-col items-center justify-center">
-        <div ref={shieldRef} className="relative mb-3">
-          <svg
-            className="w-14 h-14 text-cyan-500"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
-          </svg>
+        <div className="relative mb-3">
           <div
-            ref={lockRef}
-            className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
+            ref={glowRef}
+            className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 opacity-30 blur-xl"
+          />
+          <div
+            ref={shieldRef}
+            className="relative w-16 h-16 flex items-center justify-center"
           >
-            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
+            <svg
+              className="w-16 h-16 text-cyan-500 drop-shadow-lg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
             </svg>
           </div>
         </div>
