@@ -91,10 +91,12 @@ export function Hero() {
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg">
-                <Download className="mr-2 w-4 h-4" />
-                Download CV
-              </Button>
+              <a href="/cv.pdf" download>
+                <Button variant="outline" size="lg">
+                  <Download className="mr-2 w-4 h-4" />
+                  Download CV
+                </Button>
+              </a>
             </div>
           </ScrollReveal>
 
