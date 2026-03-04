@@ -1,14 +1,9 @@
 export const skills = [
-  { name: "Laravel", level: 95, category: "backend" },
-  { name: "PHP", level: 90, category: "backend" },
-  { name: "MySQL", level: 85, category: "database" },
-  { name: "JavaScript", level: 90, "frontend": true },
-  { name: "React", level: 85, "frontend": true },
-  { name: "Next.js", level: 80, "frontend": true },
-  { name: "Tailwind CSS", level: 90, "frontend": true },
-  { name: "RESTful API", level: 88, category: "backend" },
-  { name: "Git", level: 85, category: "tools" },
-  { name: "Docker", level: 70, category: "tools" },
+  { name: "Laravel" },
+  { name: "PHP" },
+  { name: "HTML" },
+  { name: "MySQL" },
+  { name: "Tailwind CSS" },
 ];
 
 export const skillCategories = [
