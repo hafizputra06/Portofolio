@@ -9,6 +9,37 @@ import { AnimatedProfileImage, DEFAULT_IMAGE } from "./ProfileImage";
 import { skills } from "@/lib/data/portfolio";
 import { Code2, Zap, Shield } from "lucide-react";
 
+function AnimatedSkillBadge({
+  name,
+  index,
+}: {
+  name: string;
+  index: number;
+}) {
+  const badgeRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.to(badgeRef.current, {
+      y: -4,
+      duration: 1.2 + (index * 0.08),
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+  }, { scope: badgeRef });
+
+  return (
+    <div
+      ref={badgeRef}
+      className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 cursor-default"
+    >
+      <span className="font-semibold text-slate-700 dark:text-slate-200">
+        {name}
+      </span>
+    </div>
+  );
+}
+
 function AnimatedFeatureCard({
   icon: Icon,
   title,
@@ -131,10 +162,8 @@ export function AboutPreview() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {["Laravel", "PHP", "HTML", "MySQL", "Tailwind CSS"].map((skill) => (
-                <Badge key={skill} variant="default" className="px-4 py-1.5">
-                  {skill}
-                </Badge>
+              {["Laravel", "PHP", "HTML", "MySQL", "Tailwind CSS"].map((skill, index) => (
+                <AnimatedSkillBadge key={skill} name={skill} index={index} />
               ))}
             </div>
           </ScrollReveal>
@@ -164,11 +193,7 @@ export function SkillsSection() {
 
         <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
           {skills.map((skill, index) => (
-            <ScrollReveal key={skill.name} delay={index * 30}>
-              <div className="px-6 py-3 rounded-2xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 cursor-default">
-                <span className="font-semibold text-slate-700 dark:text-slate-200">{skill.name}</span>
-              </div>
-            </ScrollReveal>
+            <AnimatedSkillBadge key={skill.name} name={skill.name} index={index} />
           ))}
         </div>
       </div>
