@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Badge } from "@/components/ui/Badge";
@@ -42,25 +42,77 @@ function AnimatedSkillBadge({
 
 function CleanCodeAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [displayedCode, setDisplayedCode] = useState<string[]>([]);
   const cursorRef = useRef<HTMLSpanElement>(null);
-  const lineRefs = useRef<HTMLSpanElement[]>([]);
 
-  const codeLines = [
-    { indent: 0, tokens: [{ text: "function", color: "text-purple-600 dark:text-purple-400" }, { text: " ", color: "" }, { text: "build", color: "text-blue-600 dark:text-blue-400" }, { text: "()", color: "text-yellow-600 dark:text-yellow-400" }] },
-    { indent: 0, tokens: [{ text: "{", color: "text-purple-600 dark:text-purple-400" }] },
-    { indent: 1, tokens: [{ text: "const", color: "text-green-600 dark:text-green-400" }, { text: " ", color: "" }, { text: "result", color: "text-orange-600 dark:text-orange-400" }, { text: " ", color: "" }, { text: "=", color: "text-yellow-600 dark:text-yellow-400" }, { text: " ", color: "" }, { text: "parse();", color: "text-pink-600 dark:text-pink-400" }] },
-    { indent: 0, tokens: [{ text: "}", color: "text-purple-600 dark:text-purple-400" }] },
+  const fullCode = [
+    "function build() {",
+    "  const result = parse();",
+    "}",
   ];
 
   useGSAP(() => {
-    lineRefs.current.forEach((line, i) => {
-      if (line) {
-        gsap.fromTo(line, { opacity: 0 }, { opacity: 1, duration: 0.3, delay: i * 0.8, repeat: -1, repeatDelay: 2, ease: "power1.inOut" });
-      }
-    });
-
     gsap.to(cursorRef.current, { opacity: 0, duration: 0.5, repeat: -1, yoyo: true });
   }, { scope: containerRef });
+
+  useEffect(() => {
+    let lineIndex = 0;
+    let charIndex = 0;
+    const newDisplayed: string[] = [];
+
+    const typeChar = () => {
+      if (lineIndex < fullCode.length) {
+        const currentLine = fullCode[lineIndex];
+        
+        if (charIndex === 0) {
+          newDisplayed[lineIndex] = "";
+        }
+        
+        newDisplayed[lineIndex] = currentLine.substring(0, charIndex + 1);
+        setDisplayedCode([...newDisplayed]);
+        
+        charIndex++;
+        
+        if (charIndex > currentLine.length) {
+          lineIndex++;
+          charIndex = 0;
+        }
+        
+        const delay = charIndex === 1 ? 300 : 50;
+        setTimeout(typeChar, delay);
+      } else {
+        setTimeout(() => {
+          lineIndex = 0;
+          charIndex = 0;
+          newDisplayed.length = 0;
+          setDisplayedCode([]);
+          setTimeout(typeChar, 500);
+        }, 2000);
+      }
+    };
+
+    setTimeout(typeChar, 500);
+  }, []);
+
+  const getTokenColor = (_char: string, index: number, line: string): string => {
+    if (line === "function build() {") {
+      if (index < 8) return "text-purple-400";
+      if (index === 9) return "";
+      if (index >= 9 && index < 14) return "text-blue-400";
+      return "text-yellow-400";
+    }
+    if (line === "  const result = parse();") {
+      if (index < 4) return "text-cyan-400";
+      if (index === 5) return "";
+      if (index >= 6 && index < 12) return "text-orange-400";
+      if (index === 13) return "";
+      if (index === 14) return "text-yellow-400";
+      if (index === 16) return "";
+      return "text-pink-400";
+    }
+    if (line === "}") return "text-purple-400";
+    return "text-white";
+  };
 
   return (
     <div className="p-4 rounded-xl bg-slate-900 shadow-lg border border-slate-700 relative overflow-hidden flex flex-col h-full">
@@ -71,13 +123,15 @@ function CleanCodeAnimation() {
         <span className="ml-2 text-xs text-slate-400">code.php</span>
       </div>
       <div ref={containerRef} className="flex-grow font-mono text-xs leading-relaxed overflow-hidden">
-        {codeLines.map((line, i) => (
-          <div key={i} className={`flex ${line.indent > 0 ? `pl-${line.indent * 4}` : ""}`}>
-            <span ref={(el) => { if (el) lineRefs.current[i] = el; }} className="flex">
-              {i === 2 && <span ref={cursorRef} className="inline-block w-2 h-4 bg-cyan-400 animate-pulse mr-0.5" />}
-              {line.tokens.map((token, j) => (
-                <span key={j} className={token.color}>{token.text}</span>
+        {fullCode.map((line, i) => (
+          <div key={i} className={i === 1 ? "pl-4" : ""}>
+            <span className="flex">
+              {displayedCode[i]?.split("").map((char, j) => (
+                <span key={j} className={getTokenColor(char, j, line)}>{char}</span>
               ))}
+              {i === displayedCode.length - 1 && displayedCode[i] && (
+                <span ref={cursorRef} className="inline-block w-2 h-4 bg-cyan-400 animate-pulse ml-0.5" />
+              )}
             </span>
           </div>
         ))}
