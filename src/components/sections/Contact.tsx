@@ -15,9 +15,9 @@ export function ContactPreview() {
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6 shadow-lg">
-              <MessageCircle className="w-4 h-4" />
-              Contact
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 dark:bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6 shadow-lg hover:bg-white/30 dark:hover:bg-white/20 transition-all duration-300 cursor-pointer group">
+              <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              <a href="/contact" className="hover">Contact</a>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Get In Touch

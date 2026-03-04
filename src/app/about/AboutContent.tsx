@@ -7,7 +7,10 @@ import { SkillsSection } from "@/components/sections/About";
 import { ExperienceTimeline } from "@/components/sections/Experience";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { AnimatedProfileImage, DEFAULT_IMAGE } from "@/components/sections/ProfileImage";
 import { Download } from "lucide-react";
+
+const HERO_IMAGE = DEFAULT_IMAGE; 
 
 export function AboutContent() {
   return (
@@ -31,13 +34,7 @@ export function AboutContent() {
 
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
               <ScrollReveal>
-                <div className="relative">
-                  <div className="w-80 h-80 mx-auto bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
-                    <span className="text-8xl font-bold text-white">DEV</span>
-                  </div>
-                  <div className="absolute -bottom-4 -right-4 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
-                  <div className="absolute -top-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
-                </div>
+                <AnimatedProfileImage src={HERO_IMAGE} alt="Hafiz Rahadian Putra" />
               </ScrollReveal>
 
               <ScrollReveal delay={100}>
@@ -50,10 +47,12 @@ export function AboutContent() {
                   with a keen eye for design, ensuring that every project I work on is
                   not only functional but also visually appealing and user friendly.
                 </p>
-                <Button variant="outline">
-                  <Download className="mr-2 w-4 h-4" />
-                  Download CV
-                </Button>
+                <a href="/cv.pdf" download>
+                  <Button variant="outline">
+                    <Download className="mr-2 w-4 h-4" />
+                    Download CV
+                  </Button>
+                </a>
               </ScrollReveal>
             </div>
           </div>
