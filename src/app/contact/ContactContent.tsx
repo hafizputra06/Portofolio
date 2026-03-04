@@ -246,7 +246,12 @@ export function ContactContent() {
                         />
                       </div>
 
-                      <Button type="submit" className="w-full" disabled={isLoading}>
+                      <Button 
+                        type="submit" 
+                        variant="dark"
+                        className="w-full" 
+                        disabled={isLoading}
+                      >
                         {isLoading ? "Sending..." : "Send Message"}
                       </Button>
                     </form>
