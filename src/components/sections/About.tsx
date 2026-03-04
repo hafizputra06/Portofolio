@@ -42,56 +42,43 @@ function AnimatedSkillBadge({
 
 function CleanCodeAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const linesRef = useRef<HTMLDivElement[]>([]);
+  const cursorRef = useRef<HTMLSpanElement>(null);
+  const lineRefs = useRef<HTMLSpanElement[]>([]);
 
   const codeLines = [
-    { indent: 0, color: "text-purple-500", text: "function" },
-    { indent: 1, color: "text-blue-500", text: "build" },
-    { indent: 2, color: "text-yellow-500", text: "()" },
-    { indent: 0, color: "text-purple-500", text: "{" },
-    { indent: 1, color: "text-green-500", text: "const" },
-    { indent: 2, color: "text-orange-500", text: "result" },
-    { indent: 2, color: "text-yellow-500", text: "=" },
-    { indent: 2, color: "text-pink-500", text: "parse();" },
-    { indent: 0, color: "text-purple-500", text: "}" },
+    { indent: 0, tokens: [{ text: "function", color: "text-purple-600 dark:text-purple-400" }, { text: " ", color: "" }, { text: "build", color: "text-blue-600 dark:text-blue-400" }, { text: "()", color: "text-yellow-600 dark:text-yellow-400" }] },
+    { indent: 0, tokens: [{ text: "{", color: "text-purple-600 dark:text-purple-400" }] },
+    { indent: 1, tokens: [{ text: "const", color: "text-green-600 dark:text-green-400" }, { text: " ", color: "" }, { text: "result", color: "text-orange-600 dark:text-orange-400" }, { text: " ", color: "" }, { text: "=", color: "text-yellow-600 dark:text-yellow-400" }, { text: " ", color: "" }, { text: "parse();", color: "text-pink-600 dark:text-pink-400" }] },
+    { indent: 0, tokens: [{ text: "}", color: "text-purple-600 dark:text-purple-400" }] },
   ];
 
   useGSAP(() => {
-    linesRef.current.forEach((line, i) => {
+    lineRefs.current.forEach((line, i) => {
       if (line) {
-        gsap.fromTo(
-          line,
-          { opacity: 0.3, x: -10 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.5,
-            delay: i * 0.15,
-            repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut",
-          }
-        );
+        gsap.fromTo(line, { opacity: 0 }, { opacity: 1, duration: 0.3, delay: i * 0.8, repeat: -1, repeatDelay: 2, ease: "power1.inOut" });
       }
     });
+
+    gsap.to(cursorRef.current, { opacity: 0, duration: 0.5, repeat: -1, yoyo: true });
   }, { scope: containerRef });
 
   return (
-    <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden flex flex-col h-full">
-      <div
-        ref={containerRef}
-        className="flex-grow space-y-1 font-mono text-xs pt-2"
-      >
+    <div className="p-4 rounded-xl bg-slate-900 dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 relative overflow-hidden flex flex-col h-full">
+      <div className="flex items-center gap-1.5 mb-2 pb-2 border-b border-slate-700">
+        <div className="w-3 h-3 rounded-full bg-red-500" />
+        <div className="w-3 h-3 rounded-full bg-yellow-500" />
+        <div className="w-3 h-3 rounded-full bg-green-500" />
+        <span className="ml-2 text-xs text-slate-400">code.php</span>
+      </div>
+      <div ref={containerRef} className="flex-grow font-mono text-xs leading-relaxed overflow-hidden">
         {codeLines.map((line, i) => (
-          <div
-            key={i}
-            ref={(el) => {
-              if (el) linesRef.current[i] = el;
-            }}
-            className={`flex ${line.indent > 0 ? `pl-${line.indent * 4}` : ""}`}
-          >
-            <span className="text-slate-400 w-4">{(i + 1).toString().padStart(2, "0")}</span>
-            <span className={line.color}>{line.text}</span>
+          <div key={i} className={`flex ${line.indent > 0 ? `pl-${line.indent * 4}` : ""}`}>
+            <span ref={(el) => { if (el) lineRefs.current[i] = el; }} className="flex">
+              {i === 2 && <span ref={cursorRef} className="inline-block w-2 h-4 bg-cyan-400 animate-pulse mr-0.5" />}
+              {line.tokens.map((token, j) => (
+                <span key={j} className={token.color}>{token.text}</span>
+              ))}
+            </span>
           </div>
         ))}
       </div>
