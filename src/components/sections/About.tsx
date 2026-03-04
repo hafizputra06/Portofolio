@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Badge } from "@/components/ui/Badge";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { AnimatedProfileImage, DEFAULT_IMAGE } from "./ProfileImage";
 import { skills } from "@/lib/data/portfolio";
 import { Code2, Zap, Shield } from "lucide-react";
 
@@ -100,14 +101,7 @@ export function AboutPreview() {
         </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <ScrollReveal>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-3xl blur-2xl opacity-20" />
-              <div className="relative w-72 h-72 mx-auto bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl flex items-center justify-center shadow-2xl">
-                <span className="text-7xl font-bold text-white">DEV</span>
-              </div>
-            </div>
-          </ScrollReveal>
+          <AnimatedProfileImage src={DEFAULT_IMAGE} alt="Hafiz Rahadian Putra" />
 
           <ScrollReveal delay={100}>
             <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
