@@ -63,7 +63,7 @@ function CleanCodeAnimation() {
   }, { scope: containerRef });
 
   return (
-    <div className="p-4 rounded-xl bg-slate-900 dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 relative overflow-hidden flex flex-col h-full">
+    <div className="p-4 rounded-xl bg-slate-900 shadow-lg border border-slate-700 relative overflow-hidden flex flex-col h-full">
       <div className="flex items-center gap-1.5 mb-2 pb-2 border-b border-slate-700">
         <div className="w-3 h-3 rounded-full bg-red-500" />
         <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -83,8 +83,8 @@ function CleanCodeAnimation() {
         ))}
       </div>
       <div className="pt-2">
-        <p className="font-semibold text-slate-900 dark:text-white text-sm">Clean Code</p>
-        <p className="text-xs text-slate-500 dark:text-slate-400">PSR-12 Standards</p>
+        <p className="font-semibold text-white text-sm">Clean Code</p>
+        <p className="text-xs text-slate-400">PSR-12 Standards</p>
       </div>
     </div>
   );
@@ -139,7 +139,7 @@ function SecureAnimation() {
   return (
     <div
       ref={containerRef}
-      className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden flex flex-col h-full"
+      className="p-4 rounded-xl bg-slate-900 shadow-lg border border-slate-700 relative overflow-hidden flex flex-col h-full"
     >
       <div className="flex-grow flex flex-col items-center justify-center">
         <div className="relative mb-3">
@@ -152,7 +152,7 @@ function SecureAnimation() {
             className="relative w-16 h-16 flex items-center justify-center"
           >
             <svg
-              className="w-16 h-16 text-cyan-500 drop-shadow-lg"
+              className="w-16 h-16 text-cyan-400 drop-shadow-lg"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -164,9 +164,9 @@ function SecureAnimation() {
         <div className="flex flex-wrap justify-center gap-1.5">
           <div
             ref={check1Ref}
-            className="flex items-center gap-1 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded"
+            className="flex items-center gap-1 text-xs font-semibold text-green-400 bg-green-900/40 px-2.5 py-1 rounded-md border border-green-700"
           >
-            <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -177,9 +177,9 @@ function SecureAnimation() {
           </div>
           <div
             ref={check2Ref}
-            className="flex items-center gap-1 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded"
+            className="flex items-center gap-1 text-xs font-semibold text-green-400 bg-green-900/40 px-2.5 py-1 rounded-md border border-green-700"
           >
-            <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -190,9 +190,9 @@ function SecureAnimation() {
           </div>
           <div
             ref={check3Ref}
-            className="flex items-center gap-1 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded"
+            className="flex items-center gap-1 text-xs font-semibold text-green-400 bg-green-900/40 px-2.5 py-1 rounded-md border border-green-700"
           >
-            <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -205,8 +205,8 @@ function SecureAnimation() {
       </div>
 
       <div className="pt-2">
-        <p className="font-semibold text-slate-900 dark:text-white text-sm">Secure</p>
-        <p className="text-xs text-slate-500 dark:text-slate-400">Best Practices</p>
+        <p className="font-semibold text-white text-sm">Secure</p>
+        <p className="text-xs text-slate-400">Best Practices</p>
       </div>
     </div>
   );
