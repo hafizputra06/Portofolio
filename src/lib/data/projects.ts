@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: "web-app" | "api" | "e-commerce" | "open-source";
+  category: ("web-app" | "php" | "laravel" | "freelance")[];
   techStack: string[];
   image: string;
   liveUrl?: string;
@@ -12,20 +12,20 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with admin dashboard, payment integration, and inventory management.",
-    category: "e-commerce",
-    techStack: ["Laravel", "React", "MySQL", "Tailwind CSS", "Stripe"],
+    title: "SIKAWAI",
+    description: "A full featured employee attendance system with admin dashboard, attendance tracking, and reporting.",
+    category: ["web-app", "php"],
+    techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/projects/ecommerce.jpg",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
   },
   {
     id: "2",
-    title: "Task Management API",
-    description: "RESTful API for task management with authentication, real-time notifications, and team collaboration.",
-    category: "api",
-    techStack: ["Laravel", "MySQL", "JWT", "WebSocket"],
+    title: "SIRAPOT",
+    description: "A full featured student reporting system with admin dashboard, attendance system, and reporting for student and teacher.",
+    category: ["laravel", "php", "web-app"],
+    techStack: ["Laravel", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/projects/api.jpg",
     githubUrl: "https://github.com",
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     id: "3",
     title: "SaaS Dashboard",
     description: "Analytics dashboard for tracking business metrics with charts, reports, and data export features.",
-    category: "web-app",
+    category: ["freelance"],
     techStack: ["Next.js", "TypeScript", "Chart.js", "PostgreSQL"],
     image: "/projects/dashboard.jpg",
     liveUrl: "https://example.com",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     id: "4",
     title: "Blog CMS",
     description: "Content management system for blogging with markdown support, SEO optimization, and media management.",
-    category: "web-app",
+    category: ["laravel"],
     techStack: ["Laravel", "Vue.js", "MySQL", "AWS S3"],
     image: "/projects/blog.jpg",
     liveUrl: "https://example.com",
@@ -52,26 +52,17 @@ export const projects: Project[] = [
     id: "5",
     title: "Laravel Package: CSV Export",
     description: "Open source Laravel package for easy CSV export functionality with customizable columns and formatting.",
-    category: "open-source",
+    category: ["php"],
     techStack: ["PHP", "Laravel", "Composer"],
     image: "/projects/package.jpg",
     githubUrl: "https://github.com",
-  },
-  {
-    id: "6",
-    title: "Real Estate Platform",
-    description: "Property listing platform with advanced search, map integration, and agent management system.",
-    category: "web-app",
-    techStack: ["Laravel", "React", "MySQL", "Google Maps API"],
-    image: "/projects/realestate.jpg",
-    liveUrl: "https://example.com",
   },
 ];
 
 export const categories = [
   { value: "all", label: "All Projects" },
   { value: "web-app", label: "Web App" },
-  { value: "api", label: "API" },
-  { value: "e-commerce", label: "E-Commerce" },
-  { value: "open-source", label: "Open Source" },
+  { value: "php", label: "PHP" },
+  { value: "laravel", label: "Laravel" },
+  { value: "freelance", label: "Freelance" },
 ];

@@ -16,7 +16,7 @@ export function ProjectsContent() {
 
   const filteredProjects = activeCategory === "all"
     ? projects
-    : projects.filter((p) => p.category === activeCategory);
+    : projects.filter((p) => p.category.includes(activeCategory as "web-app" | "php" | "laravel" | "freelance"));
 
   return (
     <>
