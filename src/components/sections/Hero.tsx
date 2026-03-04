@@ -102,12 +102,12 @@ export function Hero() {
 
           <ScrollReveal delay={500}>
             <div className="mt-12 flex items-center gap-8">
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">1+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Years Experience</p>
               </div>
               <div className="w-px h-12 bg-slate-200 dark:bg-slate-700" />
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50">
+              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">4+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Projects</p>
               </div>
