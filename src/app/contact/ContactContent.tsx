@@ -98,7 +98,7 @@ export function ContactContent() {
 
             <ScrollReveal delay={100}>
               <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-16">
-                Have a project in mind or want to collaborate? Feel free to reach out. 
+                Have a project in mind or want to collaborate? Feel free to reach out.
                 I&apos;ll get back to you as soon as possible.
               </p>
             </ScrollReveal>
@@ -115,10 +115,10 @@ export function ContactContent() {
                     <div>
                       <p className="font-medium">Email</p>
                       <a
-                        href="mailto:hello@example.com"
+                        href="mailto:hafizrahadianputra06@gmail.com"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        hello@example.com
+                        hafizrahadianputra06@gmail.com
                       </a>
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export function ContactContent() {
                     </div>
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-muted-foreground">Jakarta, Indonesia</p>
+                      <p className="text-muted-foreground">Purwokerto, Indonesia</p>
                     </div>
                   </div>
 
