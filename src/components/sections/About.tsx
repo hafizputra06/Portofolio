@@ -1,9 +1,82 @@
 "use client";
 
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Badge } from "@/components/ui/Badge";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { skills } from "@/lib/data/portfolio";
 import { Code2, Zap, Shield } from "lucide-react";
+
+function AnimatedFeatureCard({
+  icon: Icon,
+  title,
+  subtitle,
+  delay,
+  accentColor,
+}: {
+  icon: React.ElementType;
+  title: string;
+  subtitle: string;
+  delay: number;
+  accentColor: string;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: delay / 1000 });
+
+    tl.to(cardRef.current, {
+      y: -8,
+      duration: 1.5,
+      ease: "power1.inOut",
+    })
+      .to(cardRef.current, {
+        y: 0,
+        duration: 1.5,
+        ease: "power1.inOut",
+      });
+
+    gsap.to(iconRef.current, {
+      scale: 1.15,
+      duration: 0.8,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    gsap.to(glowRef.current, {
+      opacity: 0.6,
+      scale: 1.1,
+      duration: 1.2,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+  }, { scope: cardRef });
+
+  return (
+    <div
+      ref={cardRef}
+      className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden"
+    >
+      <div
+        ref={glowRef}
+        className={`absolute inset-0 bg-gradient-to-br ${accentColor} opacity-20 blur-xl transition-opacity`}
+      />
+      <div
+        ref={iconRef}
+        className={`w-10 h-10 rounded-lg bg-gradient-to-br ${accentColor} flex items-center justify-center mb-2 relative z-10`}
+      >
+        <Icon className="w-5 h-5 text-white" />
+      </div>
+      <p className="font-semibold text-slate-900 dark:text-white relative z-10">{title}</p>
+      <p className="text-sm text-slate-500 dark:text-slate-400 relative z-10">{subtitle}</p>
+    </div>
+  );
+}
 
 export function AboutPreview() {
   return (
@@ -47,16 +120,20 @@ export function AboutPreview() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700">
-                <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400 mb-2" />
-                <p className="font-semibold text-slate-900 dark:text-white">Clean Code</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">PSR-12 Standards</p>
-              </div>
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700">
-                <Shield className="w-6 h-6 text-cyan-600 dark:text-cyan-400 mb-2" />
-                <p className="font-semibold text-slate-900 dark:text-white">Secure</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Best Practices</p>
-              </div>
+              <AnimatedFeatureCard
+                icon={Code2}
+                title="Clean Code"
+                subtitle="PSR-12 Standards"
+                delay={0}
+                accentColor="from-blue-500 to-blue-600"
+              />
+              <AnimatedFeatureCard
+                icon={Shield}
+                title="Secure"
+                subtitle="Best Practices"
+                delay={1.5}
+                accentColor="from-cyan-500 to-cyan-600"
+              />
             </div>
 
             <div className="flex flex-wrap gap-2">

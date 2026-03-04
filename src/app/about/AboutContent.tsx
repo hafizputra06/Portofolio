@@ -24,7 +24,7 @@ export function AboutContent() {
 
             <ScrollReveal delay={100}>
               <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-16">
-                I&apos;m a passionate Laravel & PHP developer with 5+ years of experience 
+                I&apos;m a passionate Laravel & PHP developer with 1+ years of experience
                 building scalable web applications.
               </p>
             </ScrollReveal>
@@ -45,14 +45,10 @@ export function AboutContent() {
                   Turning Ideas Into Reality
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  I specialize in building robust, scalable web applications using Laravel 
-                  and modern frontend technologies. My approach combines technical expertise 
-                  with a keen eye for design, ensuring that every project I work on is 
-                  not only functional but also visually appealing and user-friendly.
-                </p>
-                <p className="text-muted-foreground mb-6">
-                  When I&apos;m not coding, you can find me contributing to open-source 
-                  projects, writing technical blog posts, or exploring new technologies.
+                  I specialize in building robust, scalable web applications using Laravel
+                  and modern frontend technologies. My approach combines technical expertise
+                  with a keen eye for design, ensuring that every project I work on is
+                  not only functional but also visually appealing and user friendly.
                 </p>
                 <Button variant="outline">
                   <Download className="mr-2 w-4 h-4" />

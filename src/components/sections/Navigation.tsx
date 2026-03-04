@@ -15,10 +15,10 @@ const navLinks = [
 ];
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +28,13 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
+  const handleLinkClick = () => {
     setIsOpen(false);
-  }, [pathname]);
+  };
+
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <header
@@ -82,7 +86,7 @@ export function Navigation() {
 
           <button
             className="md:hidden rounded-xl p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -101,6 +105,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={handleLinkClick}
                 className={cn(
                   "px-4 py-3 rounded-xl text-base font-medium transition-colors duration-200",
                   pathname === link.href

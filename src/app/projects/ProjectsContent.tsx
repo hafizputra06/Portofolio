@@ -25,12 +25,6 @@ export function ProjectsContent() {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <ScrollReveal>
-              <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-                My Projects
-              </h1>
-            </ScrollReveal>
-
-            <ScrollReveal>
               <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-slate-900 dark:text-white">
                 My Projects
               </h1>
@@ -38,7 +32,7 @@ export function ProjectsContent() {
 
             <ScrollReveal delay={100}>
               <p className="text-slate-600 dark:text-slate-400 text-center max-w-2xl mx-auto mb-12">
-                Here are some of the projects I&apos;ve worked on, showcasing my expertise 
+                Here are some of the projects I&apos;ve worked on, showcasing my expertise
                 in Laravel, PHP, and modern web technologies.
               </p>
             </ScrollReveal>
