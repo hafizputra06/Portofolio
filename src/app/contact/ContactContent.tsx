@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 import { Mail, MapPin, Linkedin, Github, CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/Button";
 import { Input, Textarea } from "@/components/ui/Input";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+
+const EMAILJS_PUBLIC_KEY = "FYBX_nlFnSG6XA9U9";
+const EMAILJS_SERVICE_ID = "service_do3y7rr";
+const EMAILJS_TEMPLATE_ID = "template_7acqo0m";
 
 interface FormData {
   name: string;
@@ -32,6 +37,21 @@ export function ContactContent() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [sendError, setSendError] = useState("");
+
+  const formatWIB = (): string => {
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: "Asia/Jakarta",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    };
+    return now.toLocaleDateString("id-ID", options) + " WIB";
+  };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -62,16 +82,36 @@ export function ContactContent() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSendError("");
 
     if (!validateForm()) return;
 
     setIsLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        time: formatWIB(),
+      };
 
-    setIsLoading(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSendError("Failed to send message. Please try again or email me directly.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (
@@ -245,6 +285,10 @@ export function ContactContent() {
                           error={errors.message}
                         />
                       </div>
+
+                      {sendError && (
+                        <p className="text-red-500 text-sm">{sendError}</p>
+                      )}
 
                       <Button 
                         type="submit" 
