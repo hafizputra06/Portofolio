@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { AnimatedProfileImage, DEFAULT_IMAGE } from "./ProfileImage";
 import { skills } from "@/lib/data/portfolio";
-import { Code2, Zap, Shield } from "lucide-react";
+import { Zap } from "lucide-react";
 
 function AnimatedSkillBadge({
   name,
@@ -36,6 +36,193 @@ function AnimatedSkillBadge({
       <span className="font-semibold text-slate-700 dark:text-slate-200">
         {name}
       </span>
+    </div>
+  );
+}
+
+function CleanCodeAnimation() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const linesRef = useRef<HTMLDivElement[]>([]);
+
+  const codeLines = [
+    { indent: 0, color: "text-purple-500", text: "function" },
+    { indent: 1, color: "text-blue-500", text: "build" },
+    { indent: 2, color: "text-yellow-500", text: "()" },
+    { indent: 0, color: "text-purple-500", text: "{" },
+    { indent: 1, color: "text-green-500", text: "const" },
+    { indent: 2, color: "text-orange-500", text: "result" },
+    { indent: 2, color: "text-yellow-500", text: "=" },
+    { indent: 2, color: "text-pink-500", text: "parse();" },
+    { indent: 0, color: "text-purple-500", text: "}" },
+  ];
+
+  useGSAP(() => {
+    linesRef.current.forEach((line, i) => {
+      if (line) {
+        gsap.fromTo(
+          line,
+          { opacity: 0.3, x: -10 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            delay: i * 0.15,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+          }
+        );
+      }
+    });
+  }, { scope: containerRef });
+
+  return (
+    <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden flex flex-col h-full">
+      <div
+        ref={containerRef}
+        className="flex-grow space-y-1 font-mono text-xs pt-2"
+      >
+        {codeLines.map((line, i) => (
+          <div
+            key={i}
+            ref={(el) => {
+              if (el) linesRef.current[i] = el;
+            }}
+            className={`flex ${line.indent > 0 ? `pl-${line.indent * 4}` : ""}`}
+          >
+            <span className="text-slate-400 w-4">{(i + 1).toString().padStart(2, "0")}</span>
+            <span className={line.color}>{line.text}</span>
+          </div>
+        ))}
+      </div>
+      <div className="pt-2">
+        <p className="font-semibold text-slate-900 dark:text-white text-sm">Clean Code</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400">PSR-12 Standards</p>
+      </div>
+    </div>
+  );
+}
+
+function SecureAnimation() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const shieldRef = useRef<HTMLDivElement>(null);
+  const lockRef = useRef<HTMLDivElement>(null);
+  const check1Ref = useRef<HTMLDivElement>(null);
+  const check2Ref = useRef<HTMLDivElement>(null);
+  const check3Ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.to(shieldRef.current, {
+      scale: 1.05,
+      duration: 1.5,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    gsap.to(lockRef.current, {
+      y: -3,
+      duration: 1,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    const checks = [check1Ref.current, check2Ref.current, check3Ref.current];
+    checks.forEach((check, i) => {
+      if (check) {
+        gsap.fromTo(
+          check,
+          { opacity: 0.3, scale: 0.8 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: i * 0.3,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+          }
+        );
+      }
+    });
+  }, { scope: containerRef });
+
+  return (
+    <div
+      ref={containerRef}
+      className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden flex flex-col h-full"
+    >
+      <div className="flex-grow flex flex-col items-center justify-center">
+        <div ref={shieldRef} className="relative mb-3">
+          <svg
+            className="w-14 h-14 text-cyan-500"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+          </svg>
+          <div
+            ref={lockRef}
+            className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
+          >
+            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-1.5">
+          <div
+            ref={check1Ref}
+            className="flex items-center gap-1 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded"
+          >
+            <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            SQLi
+          </div>
+          <div
+            ref={check2Ref}
+            className="flex items-center gap-1 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded"
+          >
+            <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            XSS
+          </div>
+          <div
+            ref={check3Ref}
+            className="flex items-center gap-1 text-xs font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded"
+          >
+            <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            CSRF
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-2">
+        <p className="font-semibold text-slate-900 dark:text-white text-sm">Secure</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400">Best Practices</p>
+      </div>
     </div>
   );
 }
@@ -145,20 +332,8 @@ export function AboutPreview() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <AnimatedFeatureCard
-                icon={Code2}
-                title="Clean Code"
-                subtitle="PSR-12 Standards"
-                delay={0}
-                accentColor="from-blue-500 to-blue-600"
-              />
-              <AnimatedFeatureCard
-                icon={Shield}
-                title="Secure"
-                subtitle="Best Practices"
-                delay={1.5}
-                accentColor="from-cyan-500 to-cyan-600"
-              />
+              <CleanCodeAnimation />
+              <SecureAnimation />
             </div>
 
             <div className="flex flex-wrap gap-2">
