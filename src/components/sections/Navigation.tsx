@@ -74,14 +74,28 @@ export function Navigation() {
         <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="rounded-xl p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className={cn(
+              "relative rounded-xl p-2.5 transition-all duration-300 group overflow-hidden",
+              "hover:bg-gradient-to-br hover:shadow-lg",
+              theme === "dark" 
+                ? "hover:from-amber-500/20 hover:to-yellow-500/20 hover:shadow-amber-500/20" 
+                : "hover:from-blue-500/20 hover:to-cyan-500/20 hover:shadow-blue-500/20"
+            )}
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5 text-amber-500" />
-            ) : (
-              <Moon className="h-5 w-5 text-slate-600" />
-            )}
+            <div className="relative z-10 transition-transform duration-500 group-hover:rotate-180">
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5 text-amber-500" />
+              ) : (
+                <Moon className="h-5 w-5 text-blue-600" />
+              )}
+            </div>
+            <div className={cn(
+              "absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+              theme === "dark" 
+                ? "bg-gradient-to-br from-amber-500/10 to-yellow-500/10" 
+                : "bg-gradient-to-br from-blue-500/10 to-cyan-500/10"
+            )} />
           </button>
 
           <button
