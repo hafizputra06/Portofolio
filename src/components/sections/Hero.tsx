@@ -51,8 +51,7 @@ export function Hero() {
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Available for freelance work
-              <Sparkles className="w-4 h-4" />
+              Laravel and PHP Developer
             </div>
           </ScrollReveal>
 
