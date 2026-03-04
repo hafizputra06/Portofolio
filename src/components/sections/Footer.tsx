@@ -4,7 +4,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center justify-center gap-2 text-center">
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            © {new Date().getFullYear()} Hafiz Rahadian Putra. All rights reserved.
+            © {new Date().getFullYear()} <strong>Hafiz Rahadian Putra</strong>. All rights reserved.
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-500">
             Built with Passion.
