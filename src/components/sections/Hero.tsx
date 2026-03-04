@@ -83,15 +83,15 @@ export function Hero() {
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link href="/projects">
-                <Button size="lg" className="group">
+                <Button size="lg" className="w-full sm:w-auto group">
                   View Projects
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <a href="/cv.pdf" download>
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <Download className="mr-2 w-4 h-4" />
                   Download CV
                 </Button>
@@ -100,13 +100,13 @@ export function Hero() {
           </ScrollReveal>
 
           <ScrollReveal delay={500}>
-            <div className="mt-12 flex items-center gap-8">
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
+            <div className="mt-12 flex items-center gap-4 sm:gap-8">
+              <div className="flex-1 sm:flex-none p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default active:scale-95">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">1+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Years Experience</p>
               </div>
-              <div className="w-px h-12 bg-slate-200 dark:bg-slate-700" />
-              <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
+              <div className="w-px h-12 bg-slate-200 dark:bg-slate-700 hidden sm:block" />
+              <div className="flex-1 sm:flex-none p-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default active:scale-95">
                 <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">4+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-400">Projects</p>
               </div>

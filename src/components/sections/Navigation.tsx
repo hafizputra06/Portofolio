@@ -99,7 +99,7 @@ export function Navigation() {
           </button>
 
           <button
-            className="md:hidden rounded-xl p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="md:hidden rounded-xl p-2.5 hover:bg-blue-50 dark:hover:bg-slate-800 active:bg-blue-100 dark:active:bg-slate-700 transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -114,17 +114,17 @@ export function Navigation() {
 
       {isOpen && (
         <div className="absolute left-0 right-0 top-full border-b border-slate-200/50 dark:border-slate-700/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg md:hidden">
-          <nav className="container mx-auto flex flex-col gap-2 px-4 py-4">
+          <nav className="container mx-auto flex flex-col gap-1 px-4 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={handleLinkClick}
                 className={cn(
-                  "px-4 py-3 rounded-xl text-base font-medium transition-colors duration-200",
+                  "px-4 py-3 rounded-xl text-base font-medium transition-all duration-200",
                   pathname === link.href
                     ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
-                    : "text-slate-600 dark:text-slate-400"
+                    : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-800 active:bg-blue-100 dark:active:bg-blue-900/40"
                 )}
               >
                 {link.label}
