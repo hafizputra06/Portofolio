@@ -20,12 +20,12 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold">
               <span className="text-white">&lt;</span>
-              <span className="text-white">Mas DEV</span>
+              <span className="text-white">Hi, Iam Hafiz</span>
               <span className="text-white">/&gt;</span>
             </span>
           </div>
 
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center justify-center gap-6">
             {["Home", "About", "Projects", "Contact"].map((item) => (
               <Link
                 key={item}
@@ -53,9 +53,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 text-center">
+        <div className="mt-8 pt-8 border-t border-white/20 text-center items-center">
           <p className="text-sm text-blue-100">
-            © {new Date().getFullYear()} <strong>Hafiz Rahadian Putra</strong>. Built with Passion.
+            © {new Date().getFullYear()} <strong>Hafiz Rahadian Putra</strong>.
+          </p>
+          <p className="text-sm text-blue-100">
+            Built with Passion.
           </p>
         </div>
       </div>

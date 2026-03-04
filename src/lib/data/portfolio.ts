@@ -15,21 +15,15 @@ export const skillCategories = [
 
 export const experiences = [
   {
-    year: "2023 - Present",
-    title: "Senior PHP Developer",
-    company: "Tech Company",
-    description: "Leading development of enterprise web applications using Laravel and Vue.js.",
+    year: "2022 - 2023",
+    title: "Web Developer",
+    company: "SMP N2 Sokaraja",
+    description: "Developed Web Based Student Reporting System Using Laravel.",
   },
   {
-    year: "2021 - 2023",
-    title: "Full Stack Developer",
-    company: "Digital Agency",
-    description: "Built custom e-commerce solutions and SaaS products for various clients.",
-  },
-  {
-    year: "2019 - 2021",
-    title: "Junior Developer",
-    company: "Startup Inc",
-    description: "Started career building WordPress themes and custom PHP solutions.",
+    year: "2021 - 2022",
+    title: "Web Developer",
+    company: "Kantor Desa Sokaraja Kulon",
+    description: "Developed Web Based Employee Attendance System Using PHP",
   },
 ];
