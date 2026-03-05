@@ -54,7 +54,7 @@ export function ProjectsPreview() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 [&>div]:relative [&>div:hover]:z-20">
           {filteredProjects.slice(0, 3).map((project, index) => (
             <ScrollReveal key={project.id} delay={index * 100}>
               <ProjectCard project={project} />
@@ -76,54 +76,56 @@ export function ProjectsPreview() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card hover className="overflow-visible p-0 group h-full">
-      <div className="aspect-video relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20 overflow-visible">
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-contain group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        ) : (
-          <div className="flex items-center justify-center w-full h-full">
-            <Code2 className="w-16 h-16 text-blue-400/50 group-hover:scale-110 transition-transform duration-300" />
-          </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
-
-      <div className="p-6">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.techStack.slice(0, 3).map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-
-        <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-          {project.description}
-        </p>
-
-        <div className="flex gap-4 pt-4 border-t border-slate-100 dark:border-slate-700">
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
-            </a>
+    <div className="relative">
+      <Card hover className="overflow-visible p-0 group [&:hover]:z-30">
+        <div className="aspect-video relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20 overflow-visible">
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-contain group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full">
+              <Code2 className="w-16 h-16 text-blue-400/50 group-hover:scale-110 transition-transform duration-300" />
+            </div>
           )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         </div>
-      </div>
-    </Card>
+
+        <div className="p-6">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.techStack.slice(0, 3).map((tech) => (
+              <Badge key={tech} variant="secondary" className="text-xs">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+
+          <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            {project.description}
+          </p>
+
+          <div className="flex gap-4 pt-4 border-t border-slate-100 dark:border-slate-700">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 }

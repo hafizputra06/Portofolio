@@ -55,7 +55,7 @@ export function ProjectsContent() {
               ))}
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 [&>div]:relative [&>div:hover]:z-20">
               {filteredProjects.map((project, index) => (
                 <ScrollReveal key={project.id} delay={index * 50}>
                   <ProjectCard project={project} />
@@ -80,54 +80,56 @@ export function ProjectsContent() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card hover className="overflow-visible p-0 group h-full">
-      <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20 overflow-visible">
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-contain group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        ) : (
-          <div className="flex items-center justify-center w-full h-full">
-            <Code2 className="w-16 h-16 text-primary/50 group-hover:scale-110 transition-transform duration-300" />
-          </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
-
-      <div className="p-6 flex flex-col h-[calc(100%-aspect-video)]">
-        <div className="flex flex-wrap gap-2 mb-3">
-          {project.techStack.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-
-        <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-muted-foreground text-sm mb-4 flex-grow">
-          {project.description}
-        </p>
-
-        <div className="flex gap-3 pt-4 border-t border-border">
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-primary hover:underline"
-            >
-              <ExternalLink className="w-4 h-4" />
-              Live Demo
-            </a>
+    <div className="relative">
+      <Card hover className="overflow-visible p-0 group [&:hover]:z-30">
+        <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20 overflow-visible">
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-contain group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full">
+              <Code2 className="w-16 h-16 text-primary/50 group-hover:scale-110 transition-transform duration-300" />
+            </div>
           )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
         </div>
-      </div>
-    </Card>
+
+        <div className="p-6 flex flex-col h-[calc(100%-aspect-video)]">
+          <div className="flex flex-wrap gap-2 mb-3">
+            {project.techStack.map((tech) => (
+              <Badge key={tech} variant="secondary" className="text-xs">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+
+          <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-muted-foreground text-sm mb-4 flex-grow">
+            {project.description}
+          </p>
+
+          <div className="flex gap-3 pt-4 border-t border-border">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-sm text-primary hover:underline"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 }
