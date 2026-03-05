@@ -53,7 +53,7 @@ export const projects: Project[] = [
     description: "A portfolio project built with Next.js and Tailwind CSS.",
     category: ["freelance", "web-app"],
     techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
-    image: "/projects/package.jpg",
+    image: "/projects/portfolio.jpg",
     liveUrl: "https://example.com",
   },
 ];
