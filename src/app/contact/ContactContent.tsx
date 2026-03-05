@@ -180,12 +180,12 @@ export function ContactContent() {
                     <div>
                       <p className="font-medium">LinkedIn</p>
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/hafiz-putra-336aa6282/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        linkedin.com/in/yourprofile
+                        linkedIn.com
                       </a>
                     </div>
                   </div>
@@ -197,12 +197,12 @@ export function ContactContent() {
                     <div>
                       <p className="font-medium">GitHub</p>
                       <a
-                        href="https://github.com"
+                        href="https://github.com/hafizputra06"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        github.com/yourusername
+                        github.com/hafizputra06
                       </a>
                     </div>
                   </div>
@@ -290,10 +290,10 @@ export function ContactContent() {
                         <p className="text-red-500 text-sm">{sendError}</p>
                       )}
 
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         variant="dark"
-                        className="w-full" 
+                        className="w-full"
                         disabled={isLoading}
                       >
                         {isLoading ? "Sending..." : "Send Message"}

@@ -19,7 +19,7 @@ export function ProjectsPreview() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/30 to-white dark:from-slate-900 dark:via-slate-900 dark:to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -106,17 +106,6 @@ function ProjectCard({ project }: { project: Project }) {
             >
               <ExternalLink className="w-4 h-4" />
               Live Demo
-            </a>
-          )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <Github className="w-4 h-4" />
-              Code
             </a>
           )}
         </div>

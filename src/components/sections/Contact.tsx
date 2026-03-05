@@ -54,7 +54,7 @@ export function ContactPreview() {
         <ScrollReveal delay={300}>
           <div className="flex justify-center gap-4 mb-12">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/hafiz-putra-336aa6282/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 dark:hover:bg-white/15 hover:scale-110 transition-all shadow-lg hover:shadow-xl"
@@ -62,7 +62,7 @@ export function ContactPreview() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/hafizputra06"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 dark:hover:bg-white/15 hover:scale-110 transition-all shadow-lg hover:shadow-xl"

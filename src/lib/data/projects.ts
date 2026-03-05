@@ -27,7 +27,7 @@ export const projects: Project[] = [
     category: ["laravel", "php", "web-app"],
     techStack: ["Laravel", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/projects/api.jpg",
-    githubUrl: "https://github.com",
+    liveUrl: "https://example.com",
   },
   {
     id: "3",
@@ -46,7 +46,6 @@ export const projects: Project[] = [
     techStack: ["Laravel", "Vue.js", "MySQL", "AWS S3"],
     image: "/projects/blog.jpg",
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
   },
   {
     id: "5",
@@ -55,7 +54,7 @@ export const projects: Project[] = [
     category: ["php"],
     techStack: ["PHP", "Laravel", "Composer"],
     image: "/projects/package.jpg",
-    githubUrl: "https://github.com",
+    liveUrl: "https://example.com",
   },
 ];
 

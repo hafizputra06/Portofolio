@@ -113,17 +113,6 @@ function ProjectCard({ project }: { project: Project }) {
               Live Demo
             </a>
           )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Github className="w-4 h-4" />
-              Code
-            </a>
-          )}
         </div>
       </div>
     </Card>
