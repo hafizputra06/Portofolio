@@ -88,7 +88,7 @@ function ProjectCard({ project }: { project: Project }) {
               src={project.image}
               alt={project.title}
               fill
-              className="object-contain group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
+              className="object-contain md:group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
