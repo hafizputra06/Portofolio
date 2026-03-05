@@ -75,3 +75,13 @@ html {
   transform: translateY(0) translateX(0) !important;
   opacity: 1 !important;
 }
+
+/* 3D Transform for Project Card */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  transform-origin: center bottom;
+}

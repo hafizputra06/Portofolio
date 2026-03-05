@@ -80,14 +80,14 @@ export function ProjectsContent() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card hover className="overflow-hidden p-0 group h-full">
-      <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
+    <Card hover className="overflow-visible p-0 group h-full">
+      <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20 overflow-visible">
         {project.image ? (
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-contain p-2 group-hover:object-cover group-hover:p-0 group-hover:scale-110 transition-all duration-500 ease-out"
+            className="object-contain group-hover:scale-150 group-hover:-translate-y-8 transition-all duration-500 ease-out"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
@@ -95,7 +95,7 @@ function ProjectCard({ project }: { project: Project }) {
             <Code2 className="w-16 h-16 text-primary/50 group-hover:scale-110 transition-transform duration-300" />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       <div className="p-6 flex flex-col h-[calc(100%-aspect-video)]">
