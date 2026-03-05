@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ExternalLink, Github, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -80,8 +81,20 @@ export function ProjectsContent() {
 function ProjectCard({ project }: { project: Project }) {
   return (
     <Card hover className="overflow-hidden p-0 group h-full">
-      <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-        <Code2 className="w-16 h-16 text-primary/50 group-hover:scale-110 transition-transform duration-300" />
+      <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-accent/20">
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full">
+            <Code2 className="w-16 h-16 text-primary/50 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+        )}
         <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
 

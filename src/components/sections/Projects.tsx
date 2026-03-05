@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ExternalLink, Github, Code2, Layers } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -76,8 +77,20 @@ export function ProjectsPreview() {
 function ProjectCard({ project }: { project: Project }) {
   return (
     <Card hover className="overflow-hidden p-0 group h-full">
-      <div className="aspect-video bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20 flex items-center justify-center">
-        <Code2 className="w-16 h-16 text-blue-400/50 group-hover:scale-110 transition-transform duration-300" />
+      <div className="aspect-video relative bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20">
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full">
+            <Code2 className="w-16 h-16 text-blue-400/50 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+        )}
       </div>
 
       <div className="p-6">
