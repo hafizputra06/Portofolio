@@ -35,7 +35,7 @@ export const projects: Project[] = [
     description: "A full featured face recognition attendance system with admin dashboard, attendance tracking, and reporting.",
     category: ["freelance", "php", "web-app"],
     techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
-    image: "/projects/dashboard.jpg",
+    image: "/projects/attendance.jpg",
     liveUrl: "https://example.com",
   },
   {
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     description: "A full featured student reporting system with admin dashboard, attendance system, and reporting for student and teacher build with laravel and vue.js.",
     category: ["laravel", "php", "web-app", "freelance"],
     techStack: ["Laravel", "Vue.js", "MySQL", "Tailwind CSS"],
-    image: "/projects/blog.jpg",
+    image: "/projects/raport.jpg",
     liveUrl: "https://example.com",
   },
   {
