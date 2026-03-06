@@ -17,7 +17,7 @@ export const projects: Project[] = [
     category: ["web-app", "php"],
     techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/projects/sikawai.jpg",
-    liveUrl: "https://example.com",
+    liveUrl: "/coming-soon",
     githubUrl: "https://github.com",
   },
   {
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     category: ["laravel", "php", "web-app"],
     techStack: ["Laravel", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/projects/sirapot.jpg",
-    liveUrl: "https://example.com",
+    liveUrl: "/coming-soon",
   },
   {
     id: "3",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     category: ["freelance", "php", "web-app"],
     techStack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/projects/attendance.jpg",
-    liveUrl: "https://example.com",
+    liveUrl: "/coming-soon",
   },
   {
     id: "4",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     category: ["laravel", "php", "web-app", "freelance"],
     techStack: ["Laravel", "Vue.js", "MySQL", "Tailwind CSS"],
     image: "/projects/raport.jpg",
-    liveUrl: "https://example.com",
+    liveUrl: "/coming-soon",
   },
   {
     id: "5",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     category: ["freelance", "web-app"],
     techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
     image: "/projects/portfolio.jpg",
-    liveUrl: "https://example.com",
+    liveUrl: "/coming-soon",
   },
 ];
 
