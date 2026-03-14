@@ -54,7 +54,25 @@ export const projects: Project[] = [
     category: ["freelance", "web-app"],
     techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
     image: "/projects/portfolio.jpg",
-    liveUrl: "/coming-soon",
+    liveUrl: "https://hafizportfolio-eta.vercel.app/",
+  },
+  {
+    id: "6",
+    title: "QuranQuest",
+    description: "QuranQuest combines the timeless wisdom of the Holy Book with modern productivity tools. With Daily Streak system and seamless Last Read tracking, will help spiritual goals into a lifelong habit.",
+    category: ["freelance", "web-app"],
+    techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/quranquest.jpg",
+    liveUrl: "https://quranquest-lovat.vercel.app/",
+  },
+  {
+    id: "7",
+    title: "ResuFlow",
+    description: "ResuFlow is an online platform designed to help users create professional and well structured resumes easily. It typically provides customizable templates and user friendly tools to streamline the resume building process for job seekers.",
+    category: ["freelance", "web-app"],
+    techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/resuflow.jpg",
+    liveUrl: "https://resumeflow-six.vercel.app/",
   },
 ];
 
